@@ -1,0 +1,21 @@
+{
+	"name": "DFDHONI07",
+	"properties": {
+		"globalParameters": {
+			"TableName": {
+				"type": "string",
+				"value": "Product"
+			},
+			"Username": {
+				"type": "string",
+				"value": "Uday"
+			}
+		}
+	},
+	"location": "japaneast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a7e7ed27-d9f3-4abe-b283-ba65db848636",
+		"tenantId": "a95561b7-0269-41e7-9ff4-226965bf383f"
+	}
+}

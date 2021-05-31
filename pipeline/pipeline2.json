@@ -1,0 +1,48 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "EMP",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"EMP": {
+								"TableName": "EMP"
+							},
+							"DEPT": {
+								"TableName": "DEPT"
+							},
+							"EMP10": {
+								"TableName": "EMP10"
+							},
+							"EMP11": {
+								"TableName": "EMP11"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-05-27T14:33:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
