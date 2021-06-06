@@ -35,10 +35,10 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SQL_TableP",
+						"referenceName": "Products",
 						"type": "DatasetReference",
 						"parameters": {
-							"TableName": "dept"
+							"TableName": "Product"
 						}
 					}
 				],
