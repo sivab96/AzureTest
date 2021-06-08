@@ -1,0 +1,23 @@
+{
+	"name": "ds_emplanding",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsgen2hnamespace",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Landing",
+				"fileSystem": "con-adf-test"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
