@@ -15,7 +15,10 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "EMP"
+			"table": {
+				"value": "@dataset().tname",
+				"type": "Expression"
+			}
 		}
 	}
 }
