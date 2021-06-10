@@ -1,21 +1,16 @@
 {
-	"name": "ds_source",
+	"name": "ds_dept",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_sqldatabase",
 			"type": "LinkedServiceReference"
-		},
-		"parameters": {
-			"tname": {
-				"type": "String"
-			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "EMP"
+			"table": "DEPT"
 		}
 	}
 }
