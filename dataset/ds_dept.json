@@ -5,12 +5,20 @@
 			"referenceName": "ls_sqldatabase",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"dept": {
+				"type": "String"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "DEPT"
+			"table": {
+				"value": "@dataset().dept",
+				"type": "Expression"
+			}
 		}
 	}
 }
