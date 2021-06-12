@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "datafactory94"
+		},
+		"ls_adlsgen2_accountKey": {
+			"value": ""
+		},
+		"ls_sqldatabase_connectionString": {
+			"value": ""
+		},
+		"ls_adlsgen2_properties_typeProperties_url": {
+			"value": "https://adlsstoragetest94.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorage1_properties_privateLinkResourceId": {
+			"value": "/subscriptions/1d6c8d4d-df9c-4dc8-a224-e291852dd87e/resourceGroups/DRAVID19/providers/Microsoft.Storage/storageAccounts/adlstest1uday"
+		},
+		"AzureDataLakeStorage1_properties_groupId": {
+			"value": "dfs"
+		}
+	}
+}
