@@ -5,18 +5,13 @@
 			"referenceName": "ls_sqldatabase",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"emp": {
-				"type": "String"
-			}
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
 			"table": {
-				"value": "@dataset().emp",
+				"value": "emp",
 				"type": "Expression"
 			}
 		}
