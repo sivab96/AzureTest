@@ -33,7 +33,7 @@
 					"name": "joinempanddept"
 				}
 			],
-			"script": "source(output(\n\t\tEMPNO as decimal(4,0),\n\t\tENAME as string,\n\t\tJOB as string,\n\t\tMGR as decimal(4,0),\n\t\tHIREDATE as timestamp,\n\t\tSAL as decimal(7,2),\n\t\tCOMM as decimal(7,2),\n\t\tDEPTNO as decimal(2,0)\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> emp\nsource(output(\n\t\tDEPTNO as decimal(2,0),\n\t\tDNAME as string,\n\t\tLOC as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> dept\nemp, dept join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> joinempanddept\njoinempanddept sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+			"script": "source(output(\n\t\tEMPNO as decimal(4,0),\n\t\tENAME as string,\n\t\tJOB as string,\n\t\tMGR as decimal(4,0),\n\t\tHIREDATE as timestamp,\n\t\tSAL as decimal(7,2),\n\t\tCOMM as decimal(7,2),\n\t\tDEPTNO as decimal(2,0)\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> emp\nsource(output(\n\t\tDEPTNO as decimal(2,0),\n\t\tDNAME as string,\n\t\tLOC as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> dept\nemp, dept join(emp@DEPTNO == dept@DEPTNO,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> joinempanddept\njoinempanddept sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
 		}
 	}
 }
