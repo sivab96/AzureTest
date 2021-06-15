@@ -5,13 +5,13 @@
 		"factoryName": {
 			"value": "datafactory94"
 		},
-		"ls_adlsgen2_accountKey": {
+		"ds_gen2_accountKey": {
 			"value": ""
 		},
 		"ls_sqldatabase_connectionString": {
 			"value": ""
 		},
-		"ls_adlsgen2_properties_typeProperties_url": {
+		"ds_gen2_properties_typeProperties_url": {
 			"value": "https://adlsstoragetest94.dfs.core.windows.net"
 		},
 		"AzureDataLakeStorage1_properties_privateLinkResourceId": {
