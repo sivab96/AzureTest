@@ -1,10 +1,6 @@
 {
 	"name": "ds_landing",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_adlsgen2",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
