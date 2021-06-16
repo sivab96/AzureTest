@@ -1,0 +1,24 @@
+{
+	"name": "Triggertestfrmudy",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyTable",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2021-06-16T06:51:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
