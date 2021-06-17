@@ -1,0 +1,12 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"parameters": {
+			"outputfolders": {
+				"type": "array",
+				"defaultValue": "[out1,out2]"
+			}
+		},
+		"annotations": []
+	}
+}
