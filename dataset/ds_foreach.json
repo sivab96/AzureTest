@@ -6,7 +6,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"outputfolders": {
+			"foldersname": {
 				"type": "string"
 			}
 		},
