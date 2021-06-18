@@ -16,9 +16,15 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
@@ -43,11 +49,8 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_sqldata1",
-						"type": "DatasetReference",
-						"parameters": {
-							"tablename": "asdf"
-						}
+						"referenceName": "ds_gen2",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [

@@ -22,10 +22,17 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "ds_gen2",
+						"referenceName": "ds_sqldata1",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_gen2",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
 				}
 			],
 			"transformations": [
@@ -36,7 +43,7 @@
 					"name": "ConditionalSplit1"
 				}
 			],
-			"script": "source(output(\n\t\tEMPNO as decimal(4,0),\n\t\tENAME as string,\n\t\tJOB as string,\n\t\tMGR as decimal(4,0),\n\t\tHIREDATE as timestamp,\n\t\tSAL as decimal(7,2),\n\t\tCOMM as decimal(7,2),\n\t\tDEPTNO as decimal(2,0)\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> emp\nsource(output(\n\t\tDEPTNO as decimal(2,0),\n\t\tDNAME as string,\n\t\tLOC as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> dept\nemp, dept join(emp@DEPTNO == dept@DEPTNO,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> joinempanddept\njoinempanddept split(SAL>1000,\n\tdisjoint: false,\n\tpartitionBy('hash', 1)) ~> ConditionalSplit1@(SINK1, SINK2)\nConditionalSplit1@SINK1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+			"script": "source(output(\n\t\tEMPNO as decimal(4,0),\n\t\tENAME as string,\n\t\tJOB as string,\n\t\tMGR as decimal(4,0),\n\t\tHIREDATE as timestamp,\n\t\tSAL as decimal(7,2),\n\t\tCOMM as decimal(7,2),\n\t\tDEPTNO as decimal(2,0)\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> emp\nsource(output(\n\t\tDEPTNO as decimal(2,0),\n\t\tDNAME as string,\n\t\tLOC as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> dept\nemp, dept join(emp@DEPTNO == dept@DEPTNO,\n\tjoinType:'inner',\n\tbroadcast: 'auto')~> joinempanddept\njoinempanddept split(SAL>1000,\n\tdisjoint: false) ~> ConditionalSplit1@(morethan1000, less)\nConditionalSplit1@morethan1000 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:true,\n\tinsertable:true,\n\tupdateable:true,\n\tupsertable:true,\n\tkeys:['EMPNO'],\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1\nConditionalSplit1@less sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink2"
 		}
 	}
 }
