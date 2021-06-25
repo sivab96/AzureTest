@@ -27,15 +27,7 @@
 						}
 					},
 					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
+						"type": "AzureSqlSink"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -55,12 +47,58 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_gen2",
-						"type": "DatasetReference"
+						"referenceName": "ds_sqldata1",
+						"type": "DatasetReference",
+						"parameters": {
+							"tablename": "ytyf"
+						}
 					}
 				]
+			},
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Copy data1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-43.eastus.logic.azure.com:443/workflows/5927c09bbbb24f28b8b2fd6536c757a8/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=wRvm6VZoHvACJpwomqrN2xa0g_YGJGsBYLzETyPqoTo",
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"method": "POST",
+					"body": {
+						"value": "{\"EmailTo\": \"@{pipeline().parameters.EmailTo}\",\"Subject\": \"An error has occured in the @{pipeline().Pipeline}-pipeline\",\"DataFactoryName\": \"@{pipeline().DataFactory}\",\"PipelineName\": \"@{pipeline().Pipeline}\",\"Activity\": \"@{pipeline().parameters.Activity}\",\"ErrorMessage\": \"@{activity('Copy data1').output.error.message}\"}",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"parameters": {
+			"EmailTo": {
+				"type": "String"
+			},
+			"Activity": {
+				"type": "String"
+			},
+			"ErrorMessage": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
