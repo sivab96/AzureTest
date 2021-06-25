@@ -82,7 +82,7 @@
 					},
 					"method": "POST",
 					"body": {
-						"value": "{\"EmailTo\": \"@{pipeline().parameters.EmailTo}\",\"Subject\": \"An error has occured in the @{pipeline().Pipeline}-pipeline\",\"DataFactoryName\": \"@{pipeline().DataFactory}\",\"PipelineName\": \"@{pipeline().Pipeline}\",\"Activity\": \"@{pipeline().parameters.Activity}\",\"ErrorMessage\": \"@{activity('Copy data1').output.error.message}\"}",
+						"value": "{\"EmailTo\": \"@{pipeline().parameters.EmailTo}\",\"Subject\": \"An error has occured in the @{pipeline().Pipeline}-pipeline\",\"DataFactoryName\": \"@{pipeline().DataFactory}\",\"PipelineName\": \"@{pipeline().Pipeline}\",\"Activity\": \"@{pipeline().parameters.Activity}\",\"ErrorMessage\": \"@{activity('Copy data1').error.message}\"}",
 						"type": "Expression"
 					}
 				}
