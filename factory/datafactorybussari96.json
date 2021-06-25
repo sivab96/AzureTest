@@ -1,0 +1,9 @@
+{
+	"name": "datafactorybussari96",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "21015c26-e678-41ef-a6d7-c03bc89bfa85",
+		"tenantId": "eedaec53-fcd3-4ada-9495-e5f429ae5055"
+	}
+}
