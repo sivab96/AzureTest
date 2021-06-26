@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "abcd.csc",
+				"fileName": "abcd.csv",
 				"folderPath": "dropzone",
 				"fileSystem": "adlscontainer96"
 			},
