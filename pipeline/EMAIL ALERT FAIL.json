@@ -80,7 +80,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://prod-87.eastus.logic.azure.com:443/workflows/680aa01a83904c0987bba5bf4ffeb2c2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=NW4BKrBKs7xjrzYmkpisZylwg-t1k4hDaB-TgjV9YzY",
+					"url": {
+						"value": "https://prod-87.eastus.logic.azure.com:443/workflows/680aa01a83904c0987bba5bf4ffeb2c2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=NW4BKrBKs7xjrzYmkpisZylwg-t1k4hDaB-TgjV9YzY",
+						"type": "Expression"
+					},
 					"method": "POST",
 					"headers": {
 						"Contr\\ent-Type": "application/json"
