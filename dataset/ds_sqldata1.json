@@ -2,7 +2,7 @@
 	"name": "ds_sqldata1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_sqldatabase",
+			"referenceName": "ls_forparquet",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
