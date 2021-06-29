@@ -41,11 +41,8 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_sqldata1",
-						"type": "DatasetReference",
-						"parameters": {
-							"tablename": "EMP"
-						}
+						"referenceName": "ds_sqldatabase",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
