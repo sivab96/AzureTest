@@ -2,7 +2,7 @@
 	"name": "ds_gen2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ds_gen2",
+			"referenceName": "ls_forgen2parquet",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
