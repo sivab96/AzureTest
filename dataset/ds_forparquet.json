@@ -1,10 +1,6 @@
 {
 	"name": "ds_forparquet",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ds_gen2",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
