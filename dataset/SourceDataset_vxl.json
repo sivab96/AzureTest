@@ -1,0 +1,63 @@
+{
+	"name": "SourceDataset_vxl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "dbo.emp.parquet",
+				"fileSystem": "adlscontainer96"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "EMPNO",
+				"type": "DECIMAL",
+				"precision": 4,
+				"scale": 0
+			},
+			{
+				"name": "ENAME",
+				"type": "UTF8"
+			},
+			{
+				"name": "JOB",
+				"type": "UTF8"
+			},
+			{
+				"name": "MGR",
+				"type": "DECIMAL",
+				"precision": 4,
+				"scale": 0
+			},
+			{
+				"name": "HIREDATE",
+				"type": "INT96"
+			},
+			{
+				"name": "SAL",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "COMM",
+				"type": "DECIMAL",
+				"precision": 7,
+				"scale": 2
+			},
+			{
+				"name": "DEPTNO",
+				"type": "DECIMAL",
+				"precision": 2,
+				"scale": 0
+			}
+		]
+	}
+}
