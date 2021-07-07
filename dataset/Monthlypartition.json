@@ -16,16 +16,24 @@
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
+				"name": "NAME",
 				"type": "String"
 			},
 			{
+				"name": "SAL",
 				"type": "String"
 			},
 			{
+				"name": "PERIOD",
+				"type": "String"
+			},
+			{
+				"name": "YEAR",
 				"type": "String"
 			}
 		]

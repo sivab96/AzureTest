@@ -1,0 +1,20 @@
+{
+	"name": "powerquery1",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "Monthlypartition",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~>  Monthlypartition",
+					"dataset": {
+						"referenceName": "Monthlypartition",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"sinks": [],
+			"script": "section Section1;\r\nshared Monthlypartition = let\r\n  AdfDoc = AzureStorage.DataLakeContents(\"https://adlsbussari96.dfs.core.windows.net/adlscontainer96/dropzone/partition.csv\"),\r\n  Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv])\r\nin\r\n  Csv;\r\nshared UserQuery = let\r\n  Source = Monthlypartition\r\nin\r\n  Source;\r\n"
+		}
+	}
+}
