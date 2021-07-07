@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "Monthly partition",
+						"referenceName": "partition",
 						"type": "DataFlowReference"
 					},
 					"compute": {
