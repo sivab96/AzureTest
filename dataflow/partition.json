@@ -22,7 +22,7 @@
 				}
 			],
 			"transformations": [],
-			"script": "source(output(\n\t\tNAME as string,\n\t\tSAL as string,\n\t\tPERIOD as string,\n\t\tYEAR as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tpartitionBy('dynamicRange', 5,\n\t\tPERIOD,\n\t\tYEAR\n\t)) ~> source1\nsource1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['01','02','03','04','05'],\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('dynamicRange', 5,\n\t\tPERIOD\n\t)) ~> sink1"
+			"script": "source(output(\n\t\tNAME as string,\n\t\tSAL as string,\n\t\tPERIOD as string,\n\t\tYEAR as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tpartitionBy('dynamicRange', 5,\n\t\tPERIOD,\n\t\tYEAR\n\t)) ~> source1\nsource1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['01','02','03','04','05','06','07'],\n\ttruncate: true,\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('dynamicRange', 5,\n\t\tPERIOD\n\t)) ~> sink1"
 		}
 	}
 }
