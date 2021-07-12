@@ -42,7 +42,10 @@
 				"inputs": [
 					{
 						"referenceName": "ds_gen2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "2"
+						}
 					}
 				],
 				"outputs": [
