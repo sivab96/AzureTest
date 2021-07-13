@@ -29,13 +29,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "value",
-					"value": 1
+					"value": "1"
 				}
 			}
 		],
 		"variables": {
 			"value": {
-				"type": "Array",
+				"type": "String",
 				"defaultValue": "1"
 			}
 		},
