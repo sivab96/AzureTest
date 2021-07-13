@@ -1,0 +1,36 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "FILETYPE",
+					"value": ""
+				}
+			},
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
+		"parameters": {
+			"FILE NAME": {
+				"type": "string",
+				"defaultValue": "DAILYSALES"
+			}
+		},
+		"variables": {
+			"FILETYPE": {
+				"type": "String",
+				"defaultValue": "{\"FDF\",\"FF\"}"
+			}
+		},
+		"annotations": []
+	}
+}
