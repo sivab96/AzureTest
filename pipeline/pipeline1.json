@@ -5,14 +5,28 @@
 			{
 				"name": "Append variable1",
 				"type": "AppendVariable",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": []
 			},
 			{
 				"name": "Set variable1",
 				"type": "SetVariable",
 				"dependsOn": [],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "value",
+					"value": {
+						"value": "1,2,3",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"variables": {
