@@ -9,7 +9,9 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "FILETYPE",
-					"value": ""
+					"value": [
+						""
+					]
 				}
 			},
 			{
@@ -27,8 +29,11 @@
 		},
 		"variables": {
 			"FILETYPE": {
-				"type": "String",
-				"defaultValue": "{\"FDF\",\"FF\"}"
+				"type": "Array",
+				"defaultValue": [
+					"{\"FDF\"",
+					"\"FF\"}"
+				]
 			}
 		},
 		"annotations": []
