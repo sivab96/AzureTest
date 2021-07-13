@@ -13,7 +13,11 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "value",
+					"value": "1,2,3,4"
+				}
 			},
 			{
 				"name": "Set variable1",
@@ -23,7 +27,7 @@
 				"typeProperties": {
 					"variableName": "value",
 					"value": {
-						"value": "1,2,3",
+						"value": "{1,2,3}",
 						"type": "Expression"
 					}
 				}
