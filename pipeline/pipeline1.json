@@ -16,7 +16,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "value",
-					"value": "1,2,3,4"
+					"value": {
+						"value": "[\"1\"]",
+						"type": "Expression"
+					}
 				}
 			},
 			{
@@ -26,20 +29,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "value",
-					"value": {
-						"value": "1,2,3",
-						"type": "Expression"
-					}
+					"value": 1
 				}
 			}
 		],
 		"variables": {
 			"value": {
 				"type": "Array",
-				"defaultValue": [
-					"1",
-					"2"
-				]
+				"defaultValue": "1"
 			}
 		},
 		"annotations": []
